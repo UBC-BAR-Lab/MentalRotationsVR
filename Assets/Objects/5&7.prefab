@@ -101,7 +101,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2112424847787884302}
   m_Layer: 0
-  m_Name: Group 5
+  m_Name: 5&7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -116,7 +116,7 @@ Transform:
   m_GameObject: {fileID: 2113396848895096592}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_Children:
   - {fileID: 1096469758287680264}
   - {fileID: 2172334723899533342}
