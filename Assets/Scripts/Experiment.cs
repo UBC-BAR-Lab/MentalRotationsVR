@@ -2,9 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Rotation : MonoBehaviour {
-
-  void Update() {
-
-  }
+public class Experiment : MonoBehaviour
+{
+    public int participant;
 }
