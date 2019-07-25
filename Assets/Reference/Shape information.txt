@@ -34,3 +34,5 @@ Question: Object (first number)
 18: 18, 17, 17, 18
 19: 9,  19, 13, 19
 20: 13, 20, 20, 9
+
+exact matches:
