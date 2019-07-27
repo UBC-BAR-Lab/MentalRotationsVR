@@ -1,0 +1,4 @@
+timestamp,log_type,message
+0,Log,Loaded: C:\Users\BAR Lab\Desktop\Rotating Shapes\participant_list.csv
+0.02,Warning,"A Canvas named ""Info"" with a render mode of ScreenSpaceOverlay is being used while VR is also enabled. This Canvas will continue to incur a rendering cost but will not be visible while in VR. Is this intentional?"
+105.8343,Log,Updating: C:\Users\BAR Lab\Desktop\Rotating Shapes\participant_list.csv
