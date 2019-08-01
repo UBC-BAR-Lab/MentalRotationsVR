@@ -16,6 +16,11 @@ public class Shape : MonoBehaviour, IPointerDownHandler {
     selected = false;
   }
 
+  public void Reset(){
+    selected=false;
+    updateColor();
+  }
+
   void updateColor(){
     if (selected){
       foreach (MeshRenderer m in this.GetComponentsInChildren<MeshRenderer>()){

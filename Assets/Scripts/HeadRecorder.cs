@@ -6,10 +6,10 @@ public struct HeadData {
   public float time;
   public Vector3 position;
   public Quaternion rotation;
-  public int questionnum;
+  public int QuestionNum;
 
-  public HeadData(int q, float t, Vector3 pos, Quaternion rot) {
-    questionnum = q;
+  public HeadData(int quesNum, float t, Vector3 pos, Quaternion rot) {
+    QuestionNum = quesNum;
     time = t;
     position = pos;
     rotation = rot;
@@ -17,27 +17,22 @@ public struct HeadData {
 }
 
 
-public class HeadRecorder : MonoBehaviour
-{
-
-  public List<HeadData> headDatas = new List<HeadData>();
+public class HeadRecorder : MonoBehaviour {
+  public List<HeadData> headData = new List<HeadData>();
   public Camera headCamera;
-  public Questionner questionner;
-    // Start is called before the first frame update
-    // Update is called once per frame
+  public Study experiment;
 
-	void Start(){
+	void Start() {
 		headCamera = GetComponent<Camera>();
 	}
 
-    void Update()
-    {
-    	headDatas.Add(new HeadData(questionner.currentQuestionNum, Time.time,
-    		headCamera.transform.position,
-            headCamera.transform.rotation));
+    void Update() {
+    	headData.Add(new HeadData(experiment.QuestionNum, Time.time,
+    		                         headCamera.transform.position,
+                                 headCamera.transform.rotation));
     }
 
     public List<HeadData> getData(){
-    	return headDatas;
+    	return headData;
     }
 }
