@@ -114,12 +114,12 @@ public class Study : MonoBehaviour {
 
   public void End(){
     Toggle[] toggles = FindObjectsOfType<Toggle>();
-    if (toggles.Length == 2 && (toggles[0].isOn || toggles[1].isOn)) {
-      Debug.Log("toggle 0: " + toggles[0].isOn);
-      Debug.Log("toggle 1: " + toggles[1].isOn);
-      questionPanel.SetActive(false);
-      endPanel.SetActive(true);
-      writeData();
+    foreach (Toggle t in toggles) {
+      if (t.isOn) {
+        questionPanel.SetActive(false);
+        endPanel.SetActive(true);
+        writeData();
+      }
     }
   }
 
