@@ -28,14 +28,18 @@ public class DataWriter : MonoBehaviour {
     string headDataFileName = directory + "HeadData-" + experiment.Participant + ".csv";
     StreamWriter headDataStream = new StreamWriter(headDataFileName);
     headDataStream.WriteLine(headDataHeader);
-    	foreach (HeadData h in hdata){
-    		dataline = $"{experiment.Participant}," + (experiment.motionParallax.isOn ? 1 : 0) + ",";
-        dataline += $"{h.QuestionNum},{h.time},";
-    		dataline += $"{h.position.x},{h.position.y},{h.position.z},";
-    		dataline += $"{h.rotation.eulerAngles.x},{h.rotation.eulerAngles.y},{h.rotation.eulerAngles.z},";
-    		headDataStream.WriteLine(dataline);
-    	}
-    	headDataStream.Close();
+  	foreach (HeadData h in hdata){
+  		dataline = $"{experiment.Participant},";
+      dataline += experiment.motionParallax.isOn + ",";
+      dataline += experiment.artsSciOrientation.value + ",";
+      dataline += experiment.genderEffect.isOn + ",";
+      dataline += $"{h.QuestionNum},{h.time},";
+  		dataline += $"{h.position.x},{h.position.y},{h.position.z},";
+  		dataline += $"{h.rotation.eulerAngles.x},{h.rotation.eulerAngles.y},";
+      dataline += $"{h.rotation.eulerAngles.z},";
+  		headDataStream.WriteLine(dataline);
+  	}
+  	headDataStream.Close();
 	}
 
 	public void writeResponses(List<ResponseData> responses) {
@@ -44,7 +48,9 @@ public class DataWriter : MonoBehaviour {
     responseDataStream.WriteLine(responseHeader);
 		for (int i = 0; i<responses.Count; i++){
       dataline = experiment.Participant + ",";
-      dataline += (experiment.motionParallax.isOn ? 1 : 0) + ",";
+      dataline += experiment.motionParallax.isOn + ",";
+      dataline += experiment.artsSciOrientation.value + ",";
+      dataline += experiment.genderEffect.isOn + ",";
       dataline += responses[i].trialNum + ",";
       dataline += responses[i].trialTime + ",";
       List<int> answerObjects = responses[i].responses;
