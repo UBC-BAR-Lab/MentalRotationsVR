@@ -2436,6 +2436,7 @@ GameObject:
   - component: {fileID: 702383032}
   - component: {fileID: 702383034}
   - component: {fileID: 702383033}
+  - component: {fileID: 702383035}
   m_Layer: 0
   m_Name: Pos2
   m_TagString: Untagged
@@ -2497,6 +2498,19 @@ AimConstraint:
   m_Sources:
   - sourceTransform: {fileID: 1158984986}
     weight: 1
+--- !u!114 &702383035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 702383031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3f773522d6b9d54fb90c69ad2970a47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: 2
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -4110,6 +4124,7 @@ GameObject:
   - component: {fileID: 1133555921}
   - component: {fileID: 1133555923}
   - component: {fileID: 1133555922}
+  - component: {fileID: 1133555924}
   m_Layer: 0
   m_Name: Pos4
   m_TagString: Untagged
@@ -4171,6 +4186,19 @@ AimConstraint:
   m_Sources:
   - sourceTransform: {fileID: 1158984986}
     weight: 1
+--- !u!114 &1133555924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1133555920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3f773522d6b9d54fb90c69ad2970a47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: 4
 --- !u!1 &1142649970
 GameObject:
   m_ObjectHideFlags: 0
@@ -4182,6 +4210,7 @@ GameObject:
   - component: {fileID: 1142649971}
   - component: {fileID: 1142649973}
   - component: {fileID: 1142649972}
+  - component: {fileID: 1142649974}
   m_Layer: 0
   m_Name: Pos3
   m_TagString: Untagged
@@ -4243,6 +4272,19 @@ AimConstraint:
   m_Sources:
   - sourceTransform: {fileID: 1158984986}
     weight: 1
+--- !u!114 &1142649974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1142649970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3f773522d6b9d54fb90c69ad2970a47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: 3
 --- !u!4 &1158984986 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 404836, guid: cb3370c18187bb444b240cfb08dcc02f,
@@ -6950,6 +6992,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1219946210485104487}
   - component: {fileID: 1218930225849886587}
+  - component: {fileID: 1218930225849886586}
   m_Layer: 0
   m_Name: Pos0
   m_TagString: Untagged
@@ -6957,6 +7000,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1218930225849886586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1218930225849886585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3f773522d6b9d54fb90c69ad2970a47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: 0
 --- !u!895512359 &1218930225849886587
 AimConstraint:
   m_ObjectHideFlags: 0
@@ -7020,6 +7076,7 @@ GameObject:
   - component: {fileID: 6103013332265896799}
   - component: {fileID: 6104310720095454019}
   - component: {fileID: 6104310720095454018}
+  - component: {fileID: 6104310720095454020}
   m_Layer: 0
   m_Name: Pos1
   m_TagString: Untagged
@@ -7067,3 +7124,16 @@ AimConstraint:
   m_Sources:
   - sourceTransform: {fileID: 1158984986}
     weight: 1
+--- !u!114 &6104310720095454020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6104310720095454017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3f773522d6b9d54fb90c69ad2970a47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: 1

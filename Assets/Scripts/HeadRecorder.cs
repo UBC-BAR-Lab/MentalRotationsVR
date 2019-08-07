@@ -53,7 +53,6 @@ public class HeadRecorder : MonoBehaviour {
         else{
           name=hit.transform.gameObject.name;
         }
-        Debug.Log("Raycast hit");
         headData.Add(new HeadData(experiment.QuestionNum, Time.time,
       		                         headCamera.transform.position,
                                    headCamera.transform.rotation, hit.point, name));

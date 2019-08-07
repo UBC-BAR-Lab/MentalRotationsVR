@@ -2,13 +2,13 @@
   "source": "Unity",
   "applications": [
     {
-      "app_key": "application.generated.unity.rotatingshapes.exe",
+      "app_key": "application.generated.unity.mentalrotations.exe",
       "launch_type": "url",
       "url": "steam://launch/",
-      "action_manifest_path": "C:\\Users\\BAR Lab\\Desktop\\Rotating Shapes\\actions.json",
+      "action_manifest_path": "C:\\Users\\BAR Lab\\Desktop\\mentalrotationsvr\\actions.json",
       "strings": {
         "en_us": {
-          "name": "Rotating Shapes [Testing]"
+          "name": "Mental Rotations [Testing]"
         }
       }
     }
