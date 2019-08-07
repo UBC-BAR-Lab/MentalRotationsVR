@@ -35,8 +35,9 @@ public class DataWriter : MonoBehaviour {
       dataline += experiment.genderEffect.isOn + ",";
       dataline += $"{h.QuestionNum},{h.time},";
   		dataline += $"{h.position.x},{h.position.y},{h.position.z},";
-  		dataline += $"{h.rotation.eulerAngles.x},{h.rotation.eulerAngles.y},";
-      dataline += $"{h.rotation.eulerAngles.z},";
+  		dataline += $"{h.rotation.eulerAngles.x},{h.rotation.eulerAngles.y},{h.rotation.eulerAngles.z},";
+      dataline += $"{h.hitPosition.x},{h.hitPosition.y},{h.hitPosition.z},";
+      dataline += $"{h.hitObject},";
   		headDataStream.WriteLine(dataline);
   	}
   	headDataStream.Close();
