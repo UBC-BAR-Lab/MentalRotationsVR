@@ -146,7 +146,7 @@ public class Study : MonoBehaviour {
       selectedShapes.Reverse();
       int score = 0;
       for (int i = 0; i < 2; i++) {
-        if (Array.Exists(answers[QuestionNum], num => (num == selectedShapes[i]))) {
+        if (Array.Exists(answers[QuestionNum-1], num => (num == selectedShapes[i]))) {
           score++;
         }
       }
