@@ -45,26 +45,26 @@ public class Study : MonoBehaviour {
   private float trialStartTime;
 
   private List<int[]> answers;
-  private int[] one = [1,3];
-  private int[] two = [1,4];
-  private int[] three = [2,4];
-  private int[] four = [2,3];
-  private int[] five = [1,3];
-  private int[] six = [1,4];
-  private int[] seven = [2,4];
-  private int[] eight = [2,3];
-  private int[] nine = [2,4];
-  private int[] ten = [1,4];
-  private int[] eleven = [2,4];
-  private int[] twelve = [2,4];
-  private int[] thirteen = [2,4];
-  private int[] fourteen = [1,4];
-  private int[] fifteen = [2,4];
-  private int[] sixteen = [2,3];
-  private int[] seventeen = [1,3];
-  private int[] eighteen = [1,4];
-  private int[] nineteen = [2,4];
-  private int[] twenty = [2,3];
+  private int[] one = {1,3};
+  private int[] two = {1,4};
+  private int[] three = {2,4};
+  private int[] four = {2,3};
+  private int[] five = {1,3};
+  private int[] six = {1,4};
+  private int[] seven = {2,4};
+  private int[] eight = {2,3};
+  private int[] nine = {2,4};
+  private int[] ten = {1,4};
+  private int[] eleven = {2,4};
+  private int[] twelve = {2,4};
+  private int[] thirteen = {2,4};
+  private int[] fourteen = {1,4};
+  private int[] fifteen = {2,4};
+  private int[] sixteen = {2,3};
+  private int[] seventeen = {1,3};
+  private int[] eighteen = {1,4};
+  private int[] nineteen = {2,4};
+  private int[] twenty = {2,3};
 
   // Start is called before the first frame update
   void Start() {
