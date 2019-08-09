@@ -11,7 +11,8 @@ public class DataWriter : MonoBehaviour {
   private const string responseHeader = "ParticipantID,MotionParallax," +
                                         "ArtsSciOrientation,GenderEffect," +
                                         "TrialNumber,Trial" +
-                                        "Time,Secondblock,FirstBlock," +
+                                        "Time,Score," +
+                                        "Secondblock,FirstBlock," +
                                         "nthDeselected,n-1thDeselected,etc.";
   private const string headDataHeader = "ParticipantID,MotionParallax," +
                                         "ArtsSciOrientation,GenderEffect," +
@@ -54,9 +55,10 @@ public class DataWriter : MonoBehaviour {
       dataline += experiment.genderEffect.isOn + ",";
       dataline += responses[i].trialNum + ",";
       dataline += responses[i].trialTime + ",";
+      dataline += responses[i].score + ",";
       List<int> answerObjects = responses[i].responses;
-      for (int j = answerObjects.Count; j > 0; j--) {
-        dataline += answerObjects[j-1] + ",";
+      foreach (int j in answerObjects) {
+        dataline += j + ",";
       }
       responseDataStream.WriteLine(dataline);
 		}

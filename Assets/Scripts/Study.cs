@@ -7,11 +7,12 @@ using UnityEngine.Animations;
 public struct ResponseData {
   public int trialNum;
   public float trialTime;
-  // public int score;
+  public int score;
   public List<int> responses;
 
-  public ResponseData(int trial, float time, List<int> resp) {
+  public ResponseData(int trial, int results, float time, List<int> resp) {
     trialNum = trial;
+    score = results;
     trialTime = time;
     responses = resp;
   }
@@ -43,6 +44,28 @@ public class Study : MonoBehaviour {
   private bool oneSelected;
   private float trialStartTime;
 
+  private List<int[]> answers;
+  private int[] one = [1,3];
+  private int[] two = [1,4];
+  private int[] three = [2,4];
+  private int[] four = [2,3];
+  private int[] five = [1,3];
+  private int[] six = [1,4];
+  private int[] seven = [2,4];
+  private int[] eight = [2,3];
+  private int[] nine = [2,4];
+  private int[] ten = [1,4];
+  private int[] eleven = [2,4];
+  private int[] twelve = [2,4];
+  private int[] thirteen = [2,4];
+  private int[] fourteen = [1,4];
+  private int[] fifteen = [2,4];
+  private int[] sixteen = [2,3];
+  private int[] seventeen = [1,3];
+  private int[] eighteen = [1,4];
+  private int[] nineteen = [2,4];
+  private int[] twenty = [2,3];
+
   // Start is called before the first frame update
   void Start() {
     QuestionNum = 0;
@@ -50,6 +73,27 @@ public class Study : MonoBehaviour {
     SetMotionParallax(motionParallax.isOn);
     responses = new List<ResponseData>();
     shapes = new List<GameObject>();
+    answers = new List<int[]>();
+    answers.Add(one);
+    answers.Add(two);
+    answers.Add(three);
+    answers.Add(four);
+    answers.Add(five);
+    answers.Add(six);
+    answers.Add(seven);
+    answers.Add(eight);
+    answers.Add(nine);
+    answers.Add(ten);
+    answers.Add(eleven);
+    answers.Add(twelve);
+    answers.Add(thirteen);
+    answers.Add(fourteen);
+    answers.Add(fifteen);
+    answers.Add(sixteen);
+    answers.Add(seventeen);
+    answers.Add(eighteen);
+    answers.Add(nineteen);
+    answers.Add(twenty);
     nextTrial();
   }
 
@@ -98,8 +142,15 @@ public class Study : MonoBehaviour {
       selectedShapes.Add(number);
     }
     if (selectionState && oneSelected) {
+      selectedShapes.Reverse();
+      int score = 0;
+      for (int i = 0; i < 2; i++) {
+        if (Array.Exists(answers[QuestionNum], num => (num == selectedShapes[i]))) {
+          score++;
+        }
+      }
       ResponseData test = new ResponseData(QuestionNum, Time.time - trialStartTime,
-                                     selectedShapes);
+                                           score, selectedShapes);
       responses.Add(test);
       Invoke("nextTrial", 0.3f);
     } else {
