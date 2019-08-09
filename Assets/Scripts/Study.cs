@@ -31,7 +31,6 @@ public class Study : MonoBehaviour {
   public GameObject questionPanel;
   public GameObject endPanel;
   public TextMesh trialNumberText;
-  public Toggle motionParallax;
   public Slider artsSciOrientation;
   public Toggle genderEffect;
 
@@ -70,7 +69,6 @@ public class Study : MonoBehaviour {
   void Start() {
     QuestionNum = 0;
     oneSelected = false;
-    SetMotionParallax(motionParallax.isOn);
     responses = new List<ResponseData>();
     shapes = new List<GameObject>();
     Participant = "QuestTrial";
@@ -96,12 +94,6 @@ public class Study : MonoBehaviour {
     answers.Add(nineteen);
     answers.Add(twenty);
     nextTrial();
-  }
-
-  public void SetMotionParallax(bool set) {
-    foreach (GameObject g in positions) {
-      g.GetComponent<AimConstraint>().constraintActive = !set;
-    }
   }
 
   public void ParticipantStart() {

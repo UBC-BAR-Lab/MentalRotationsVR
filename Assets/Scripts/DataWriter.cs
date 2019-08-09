@@ -8,13 +8,13 @@ public class DataWriter : MonoBehaviour {
 
   private string dataline;
 	private const string directory = "Mental Rotations Data\\";
-  private const string responseHeader = "ParticipantID,MotionParallax," +
+  private const string responseHeader = "ParticipantID," +
                                         "ArtsSciOrientation,GenderEffect," +
                                         "TrialNumber,Trial" +
                                         "Time,Score," +
                                         "Secondblock,FirstBlock," +
                                         "nthDeselected,n-1thDeselected,etc.";
-  private const string headDataHeader = "ParticipantID,MotionParallax," +
+  private const string headDataHeader = "ParticipantID," +
                                         "ArtsSciOrientation,GenderEffect," +
                                         "TrialNumber,Time," +
                                         "headPositionX,headPositionY," +
@@ -31,7 +31,6 @@ public class DataWriter : MonoBehaviour {
     headDataStream.WriteLine(headDataHeader);
   	foreach (HeadData h in hdata){
   		dataline = $"{experiment.Participant},";
-      dataline += experiment.motionParallax.isOn + ",";
       dataline += experiment.artsSciOrientation.value + ",";
       dataline += experiment.genderEffect.isOn + ",";
       dataline += $"{h.QuestionNum},{h.time},";
@@ -50,7 +49,6 @@ public class DataWriter : MonoBehaviour {
     responseDataStream.WriteLine(responseHeader);
 		for (int i = 0; i<responses.Count; i++){
       dataline = experiment.Participant + ",";
-      dataline += experiment.motionParallax.isOn + ",";
       dataline += experiment.artsSciOrientation.value + ",";
       dataline += experiment.genderEffect.isOn + ",";
       dataline += responses[i].trialNum + ",";
