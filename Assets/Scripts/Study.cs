@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Animations;
+using System;
 
 public struct ResponseData {
   public int trialNum;
@@ -10,7 +11,7 @@ public struct ResponseData {
   public int score;
   public List<int> responses;
 
-  public ResponseData(int trial, int results, float time, List<int> resp) {
+  public ResponseData(int trial, float time, int results, List<int> resp) {
     trialNum = trial;
     score = results;
     trialTime = time;
