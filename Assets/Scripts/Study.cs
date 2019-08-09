@@ -27,7 +27,6 @@ public class Study : MonoBehaviour {
   public int lastQuestion;
   public GameObject[] positions;
   public GameObject trialObjects;
-  public GameObject experimenterCanvas;
   public GameObject startPanel;
   public GameObject questionPanel;
   public GameObject endPanel;
@@ -74,6 +73,7 @@ public class Study : MonoBehaviour {
     SetMotionParallax(motionParallax.isOn);
     responses = new List<ResponseData>();
     shapes = new List<GameObject>();
+    Participant = "QuestTrial";
     answers = new List<int[]>();
     answers.Add(one);
     answers.Add(two);
@@ -96,13 +96,6 @@ public class Study : MonoBehaviour {
     answers.Add(nineteen);
     answers.Add(twenty);
     nextTrial();
-  }
-
-  public void ExperimenterStart() {
-    if (!string.IsNullOrEmpty(Participant)) {
-      experimenterCanvas.SetActive(false);
-      startPanel.SetActive(true);
-    }
   }
 
   public void SetMotionParallax(bool set) {
