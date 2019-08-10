@@ -33,11 +33,12 @@ public class Study : MonoBehaviour {
   public GameObject endPanel;
   public TextMesh trialNumberText;
   public Toggle motionParallax;
-  public Slider artsSciOrientation;
   public Toggle genderEffect;
+  public Slider artsSciOrientation;
 
   public string Participant { get; set; }
   public int QuestionNum { get; set; }
+  public string Handedness { get; set; }
 
   private List<int> selectedShapes;
   private List<GameObject> shapes;
@@ -159,6 +160,18 @@ public class Study : MonoBehaviour {
     }
   }
 
+  public void SetHandedness(int val) {
+  	if (val == 0) {
+  		Handedness = "";
+  	} else if (val == 1) {
+  		Handedness = "right";
+  	} else if (val == 2) {
+  		Handedness = "left";
+  	} else if (val == 3) {
+  		Handedness = "ambi";
+  	}
+  }
+
   void FinalPanel() {
     trialObjects.SetActive(false);
     questionPanel.SetActive(true);
@@ -167,7 +180,7 @@ public class Study : MonoBehaviour {
   public void End(){
     Toggle[] toggles = FindObjectsOfType<Toggle>();
     foreach (Toggle t in toggles) {
-      if (t.isOn) {
+      if (t.isOn && !String.IsNullOrEmpty(Handedness)) {
         questionPanel.SetActive(false);
         endPanel.SetActive(true);
         writeData();

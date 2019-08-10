@@ -10,13 +10,13 @@ public class DataWriter : MonoBehaviour {
 	private const string directory = "Mental Rotations Data\\";
   private const string responseHeader = "ParticipantID,MotionParallax," +
                                         "ArtsSciOrientation,GenderEffect," +
-                                        "TrialNumber,Trial" +
+                                        "Handedness,TrialNumber,Trial" +
                                         "Time,Score," +
                                         "Secondblock,FirstBlock," +
                                         "nthDeselected,n-1thDeselected,etc.";
   private const string headDataHeader = "ParticipantID,MotionParallax," +
                                         "ArtsSciOrientation,GenderEffect," +
-                                        "TrialNumber,Time," +
+                                        "Handedness,TrialNumber,Time," +
                                         "headPositionX,headPositionY," +
                                         "headPositionZ,headRotationX," +
                                         "headRotationY,headRotationZ";
@@ -34,6 +34,7 @@ public class DataWriter : MonoBehaviour {
       dataline += experiment.motionParallax.isOn + ",";
       dataline += experiment.artsSciOrientation.value + ",";
       dataline += experiment.genderEffect.isOn + ",";
+      dataline += experiment.Handedness + ",";
       dataline += $"{h.QuestionNum},{h.time},";
   		dataline += $"{h.position.x},{h.position.y},{h.position.z},";
   		dataline += $"{h.rotation.eulerAngles.x},{h.rotation.eulerAngles.y},{h.rotation.eulerAngles.z},";
@@ -53,6 +54,7 @@ public class DataWriter : MonoBehaviour {
       dataline += experiment.motionParallax.isOn + ",";
       dataline += experiment.artsSciOrientation.value + ",";
       dataline += experiment.genderEffect.isOn + ",";
+      dataline += experiment.Handedness + ",";
       dataline += responses[i].trialNum + ",";
       dataline += responses[i].trialTime + ",";
       dataline += responses[i].score + ",";
