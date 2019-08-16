@@ -100,9 +100,6 @@ public class Study : MonoBehaviour {
   }
 
   public void ExperimenterStart() {
-    if (string.IsNullOrEmpty(Participant)) {
-      Participant = "Error: Unknown";
-    }
     if (!string.IsNullOrEmpty(Participant)) {
       experimenterCanvas.SetActive(false);
       startPanel.SetActive(true);
