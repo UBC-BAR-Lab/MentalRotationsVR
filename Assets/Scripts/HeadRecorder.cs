@@ -36,10 +36,6 @@ public class HeadRecorder : MonoBehaviour {
   public Camera headCamera;
   public Study experiment;
 
-	void Start() {
-		headCamera = GetComponent<Camera>();
-	}
-
     void Update() {
       Ray ray = new Ray(headCamera.transform.position, headCamera.transform.rotation * Vector3.forward);
       RaycastHit hit;
