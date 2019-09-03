@@ -7,7 +7,7 @@ public class DataWriter : MonoBehaviour {
   public Study experiment;
 
   private string dataline;
-	private const string directory = "Mental Rotations Data\\";
+	private const string directory = "/sdcard/StudyData/RotatedShapes/";
   private const string responseHeader = "ParticipantID,MotionParallax," +
                                         "ArtsSciOrientation,GenderEffect," +
                                         "Handedness,TrialNumber,Trial" +

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Animations;
 using System;
+using UnityEngine.Android;
 
 public struct ResponseData {
   public int trialNum;
@@ -27,7 +28,7 @@ public class Study : MonoBehaviour {
   public int lastQuestion;
   public GameObject[] positions;
   public GameObject trialObjects;
-  public GameObject experimenterCanvas;
+  public GameObject experimenterPanel;
   public GameObject startPanel;
   public GameObject questionPanel;
   public GameObject endPanel;
@@ -46,8 +47,8 @@ public class Study : MonoBehaviour {
   private bool oneSelected;
   private float trialStartTime;
 
-  private List<int[]> answers;
-  private int[] one = {1,3};
+  private List<int[]> answers; //The correct answers to each question
+  private int[] one = {1,3}; //We'll put these in the answers list in Start()
   private int[] two = {1,4};
   private int[] three = {2,4};
   private int[] four = {2,3};
@@ -76,7 +77,7 @@ public class Study : MonoBehaviour {
     responses = new List<ResponseData>();
     shapes = new List<GameObject>();
     answers = new List<int[]>();
-    answers.Add(one);
+    answers.Add(one); //filling the aforementioned answers array
     answers.Add(two);
     answers.Add(three);
     answers.Add(four);
@@ -96,16 +97,23 @@ public class Study : MonoBehaviour {
     answers.Add(eighteen);
     answers.Add(nineteen);
     answers.Add(twenty);
+    if (!Permission.HasUserAuthorizedPermission(Permission.ExternalStorageWrite)) {
+      Permission.RequestUserPermission(Permission.ExternalStorageWrite);
+    }
     nextTrial();
   }
 
   public void ExperimenterStart() {
+    if (string.IsNullOrEmpty(Participant)) {
+      Participant = "Error: No PID found";
+    }
     if (!string.IsNullOrEmpty(Participant)) {
-      experimenterCanvas.SetActive(false);
+      experimenterPanel.SetActive(false);
       startPanel.SetActive(true);
     }
   }
 
+  //if we want objects to always face the viewer, we set enable the aim constraints, otherwise we don't.
   public void SetMotionParallax(bool set) {
     foreach (GameObject g in positions) {
       g.GetComponent<AimConstraint>().constraintActive = !set;
@@ -147,6 +155,8 @@ public class Study : MonoBehaviour {
       selectedShapes.Reverse();
       int score = 0;
       for (int i = 0; i < 2; i++) {
+        // Checks if the final selected shapes exist in answers[QuestionNum-1]
+        // using a lambda expression as the predicate.
         if (Array.Exists(answers[QuestionNum-1], num => (num == selectedShapes[i]))) {
           score++;
         }
@@ -177,7 +187,7 @@ public class Study : MonoBehaviour {
     questionPanel.SetActive(true);
   }
 
-  public void End(){
+  public void End() {
     Toggle[] toggles = FindObjectsOfType<Toggle>();
     foreach (Toggle t in toggles) {
       if (t.isOn && !String.IsNullOrEmpty(Handedness)) {
@@ -188,9 +198,12 @@ public class Study : MonoBehaviour {
     }
   }
 
-  void writeData(){
-      dataWriter.writeHeadData(headRec.getData());
-      dataWriter.writeResponses(responses);
+  void writeData() {
+    if (!Permission.HasUserAuthorizedPermission(Permission.ExternalStorageWrite)) {
+      Permission.RequestUserPermission(Permission.ExternalStorageWrite);
+    }
+    dataWriter.writeHeadData(headRec.getData());
+    dataWriter.writeResponses(responses);
   }
 
   public void Quit() {
