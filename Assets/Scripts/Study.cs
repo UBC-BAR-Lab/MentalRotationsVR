@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.Animations;
 using System;
 using UnityEngine.Android;
+using TMPro;
 
 public struct ResponseData {
   public int trialNum;
@@ -28,6 +29,7 @@ public class Study : MonoBehaviour {
   public int lastQuestion;
   public GameObject[] positions;
   public GameObject trialObjects;
+  public TMP_InputField PID;
   public GameObject experimenterPanel;
   public GameObject startPanel;
   public GameObject questionPanel;
@@ -104,9 +106,7 @@ public class Study : MonoBehaviour {
   }
 
   public void ExperimenterStart() {
-    if (string.IsNullOrEmpty(Participant)) {
-      Participant = "Error: No PID found";
-    }
+    Participant = PID.text;
     if (!string.IsNullOrEmpty(Participant)) {
       experimenterPanel.SetActive(false);
       startPanel.SetActive(true);
